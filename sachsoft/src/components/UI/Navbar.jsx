@@ -1,145 +1,183 @@
-import * as React from 'react';
-import PropTypes from 'prop-types';
-import AppBar from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
-import CssBaseline from '@mui/material/CssBaseline';
-import Divider from '@mui/material/Divider';
-import Drawer from '@mui/material/Drawer';
-import IconButton from '@mui/material/IconButton';
-import List from '@mui/material/List';
-import ListItem from '@mui/material/ListItem';
-import ListItemButton from '@mui/material/ListItemButton';
-import ListItemText from '@mui/material/ListItemText';
-import MenuIcon from '@mui/icons-material/Menu';
-import Toolbar from '@mui/material/Toolbar';
-import Typography from '@mui/material/Typography';
-import Button from '@mui/material/Button';
+import React from "react";
+import {
+  AppBar,
+  Toolbar,
+  Typography,
+  Button,
+  Container,
+  Grid,
+  Paper,
+  Box,
+  TextField,
+} from "@mui/material";
 
-const drawerWidth = 240;
-const navItems = ['Home', 'About', 'Contact'];
-
-function DrawerAppBar(props) {
-  const { window } = props;
-  const [mobileOpen, setMobileOpen] = React.useState(false);
-
-  const handleDrawerToggle = () => {
-    setMobileOpen((prevState) => !prevState);
-  };
-
-  const drawer = (
-    <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center' }}>
-      <Typography variant="h6" sx={{ my: 2 }}>
-        MUI
-      </Typography>
-      <Divider />
-      <List>
-        {navItems.map((item) => (
-          <ListItem key={item} disablePadding>
-            <ListItemButton sx={{ textAlign: 'center' }}>
-              <ListItemText primary={item} />
-            </ListItemButton>
-          </ListItem>
-        ))}
-      </List>
-    </Box>
-  );
-
-  const container = window !== undefined ? () => window().document.body : undefined;
-
+const App = () => {
   return (
-    <Box sx={{ display: 'flex' }}>
-      <CssBaseline />
-      <AppBar component="nav">
+    <div>
+      <AppBar position="static" color="primary">
         <Toolbar>
-          <IconButton
-            color="inherit"
-            aria-label="open drawer"
-            edge="start"
-            onClick={handleDrawerToggle}
-            sx={{ mr: 2, display: { sm: 'none' } }}
-          >
-            <MenuIcon />
-          </IconButton>
-          <Typography
-            variant="h6"
-            component="div"
-            sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }}
-          >
-            MUI
+          <Typography variant="h6" style={{ flexGrow: 1 }}>
+            SACHISOFT
           </Typography>
-          <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
-            {navItems.map((item) => (
-              <Button key={item} sx={{ color: '#fff' }}>
-                {item}
-              </Button>
-            ))}
-          </Box>
+          <Button color="inherit">About</Button>
+          <Button color="inherit">Services</Button>
+          <Button color="inherit">Blogs</Button>
+          <Button color="inherit">Careers</Button>
+          <Button color="inherit">Let's talk</Button>
         </Toolbar>
       </AppBar>
-      <nav>
-        <Drawer
-          container={container}
-          variant="temporary"
-          open={mobileOpen}
-          onClose={handleDrawerToggle}
-          ModalProps={{
-            keepMounted: true, // Better open performance on mobile.
-          }}
-          sx={{
-            display: { xs: 'block', sm: 'none' },
-            '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth },
-          }}
-        >
-          {drawer}
-        </Drawer>
-      </nav>
-      <Box component="main" sx={{ p: 3 }}>
-        <Toolbar />
-        <Typography>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique unde
-          fugit veniam eius, perspiciatis sunt? Corporis qui ducimus quibusdam,
-          aliquam dolore excepturi quae. Distinctio enim at eligendi perferendis in
-          cum quibusdam sed quae, accusantium et aperiam? Quod itaque exercitationem,
-          at ab sequi qui modi delectus quia corrupti alias distinctio nostrum.
-          Minima ex dolor modi inventore sapiente necessitatibus aliquam fuga et. Sed
-          numquam quibusdam at officia sapiente porro maxime corrupti perspiciatis
-          asperiores, exercitationem eius nostrum consequuntur iure aliquam itaque,
-          assumenda et! Quibusdam temporibus beatae doloremque voluptatum doloribus
-          soluta accusamus porro reprehenderit eos inventore facere, fugit, molestiae
-          ab officiis illo voluptates recusandae. Vel dolor nobis eius, ratione atque
-          soluta, aliquam fugit qui iste architecto perspiciatis. Nobis, voluptatem!
-          Cumque, eligendi unde aliquid minus quis sit debitis obcaecati error,
-          delectus quo eius exercitationem tempore. Delectus sapiente, provident
-          corporis dolorum quibusdam aut beatae repellendus est labore quisquam
-          praesentium repudiandae non vel laboriosam quo ab perferendis velit ipsa
-          deleniti modi! Ipsam, illo quod. Nesciunt commodi nihil corrupti cum non
-          fugiat praesentium doloremque architecto laborum aliquid. Quae, maxime
-          recusandae? Eveniet dolore molestiae dicta blanditiis est expedita eius
-          debitis cupiditate porro sed aspernatur quidem, repellat nihil quasi
-          praesentium quia eos, quibusdam provident. Incidunt tempore vel placeat
-          voluptate iure labore, repellendus beatae quia unde est aliquid dolor
-          molestias libero. Reiciendis similique exercitationem consequatur, nobis
-          placeat illo laudantium! Enim perferendis nulla soluta magni error,
-          provident repellat similique cupiditate ipsam, et tempore cumque quod! Qui,
-          iure suscipit tempora unde rerum autem saepe nisi vel cupiditate iusto.
-          Illum, corrupti? Fugiat quidem accusantium nulla. Aliquid inventore commodi
-          reprehenderit rerum reiciendis! Quidem alias repudiandae eaque eveniet
-          cumque nihil aliquam in expedita, impedit quas ipsum nesciunt ipsa ullam
-          consequuntur dignissimos numquam at nisi porro a, quaerat rem repellendus.
-          Voluptates perspiciatis, in pariatur impedit, nam facilis libero dolorem
-          dolores sunt inventore perferendis, aut sapiente modi nesciunt.
-        </Typography>
-      </Box>
-    </Box>
-  );
-}
+      <Container>
+        {/* Banner Section */}
+        <Box my={4} textAlign="center">
+          <Typography variant="h3" gutterBottom>
+            AT SACHISOFT
+          </Typography>
+          <Typography variant="h5" gutterBottom>
+            We revolutionize your technological ideas into reality
+          </Typography>
+          <Button variant="contained" color="secondary">
+            Get in touch
+          </Button>
+        </Box>
 
-DrawerAppBar.propTypes = {
-  /**
-   * Injected by the documentation to work in an iframe.
-   * You won't need it on your project.
-   */
-  window: PropTypes.func,
+        {/* Services Section */}
+        <Grid container spacing={3}>
+          <Grid item xs={12} md={6}>
+            <Paper elevation={3} style={{ padding: 16 }}>
+              <Typography variant="h6">Our Services</Typography>
+              <ul>
+                <li>E-Commerce</li>
+                <li>Marketing</li>
+                <li>Enterprise Solutions</li>
+                <li>UI/UX Design</li>
+                <li>Digital Automation Services (DAS)</li>
+                <li>Mobile Services (MS)</li>
+                <li>SEO</li>
+                <li>Cloud & Project Management</li>
+              </ul>
+            </Paper>
+          </Grid>
+          <Grid item xs={12} md={6}>
+            {/* Add your illustration here */}
+          </Grid>
+        </Grid>
+
+        {/* Process Section */}
+        <Box my={4} textAlign="center">
+          <Typography variant="h4">OUR PROCESS</Typography>
+          <Typography variant="h6">
+            We bring your ideas to life through built
+          </Typography>
+          <Typography variant="body1">
+            We harness cutting-edge tech to craft resilient, scalable, and
+            business-centric IT solutions with expertise.
+          </Typography>
+        </Box>
+
+        {/* Testimonials Section */}
+        <Box my={4}>
+          <Typography variant="h4" textAlign="center">
+            TESTIMONIALS
+          </Typography>
+          <Grid container spacing={3}>
+            <Grid item xs={12} md={6}>
+              <Paper elevation={3} style={{ padding: 16 }}>
+                <Typography variant="body1">
+                  "Sacchsoft has truly transformed the way we do business. Fast,
+                  reliable, and innovative. They've resolved our tech issues
+                  swiftly and efficiently, every time."
+                </Typography>
+                <Typography variant="subtitle1">
+                  John Doe, CEO, XYZ Company
+                </Typography>
+              </Paper>
+            </Grid>
+            <Grid item xs={12} md={6}>
+              <Paper elevation={3} style={{ padding: 16 }}>
+                <Typography variant="body1">
+                  "Sacchsoft has truly transformed the way we do business. Fast,
+                  reliable, and innovative. They've resolved our tech issues
+                  swiftly and efficiently, every time."
+                </Typography>
+                <Typography variant="subtitle1">
+                  Alice Rockwood, CEO, ABC
+                </Typography>
+              </Paper>
+            </Grid>
+          </Grid>
+        </Box>
+
+        {/* Team Section */}
+        <Box my={4} textAlign="center">
+          <Typography variant="h4">OUR TEAM</Typography>
+          <Grid container spacing={3}>
+            {/* Add team member photos and details here */}
+          </Grid>
+        </Box>
+
+        {/* Clients Section */}
+        <Box my={4} textAlign="center">
+          <Typography variant="h4">OUR CLIENTS</Typography>
+          <Grid container spacing={3}>
+            {/* Add client logos here */}
+          </Grid>
+        </Box>
+
+        {/* Blog Section */}
+        <Box my={4} textAlign="center">
+          <Typography variant="h4">OUR BLOG</Typography>
+          <Grid container spacing={3}>
+            {/* Add blog post previews here */}
+          </Grid>
+        </Box>
+
+        {/* Contact Section */}
+        <Box my={4} textAlign="center">
+          <Typography variant="h4">CONTACT US</Typography>
+          <form noValidate autoComplete="off">
+            <TextField
+              label="Name"
+              variant="outlined"
+              fullWidth
+              margin="normal"
+            />
+            <TextField
+              label="Email"
+              variant="outlined"
+              fullWidth
+              margin="normal"
+            />
+            <TextField
+              label="Subject"
+              variant="outlined"
+              fullWidth
+              margin="normal"
+            />
+            <TextField
+              label="Message"
+              variant="outlined"
+              fullWidth
+              margin="normal"
+              multiline
+              rows={4}
+            />
+            <Button variant="contained" color="primary">
+              Send Message
+            </Button>
+          </form>
+        </Box>
+
+        {/* Footer Section */}
+        <Box my={4} textAlign="center">
+          <Typography variant="h5">10+ INDUSTRY YEARS</Typography>
+          <Typography variant="h5">
+            $10M REVENUE GENERATED FOR CLIENTS
+          </Typography>
+          <Typography variant="h6">You dream it. We build it.</Typography>
+        </Box>
+      </Container>
+    </div>
+  );
 };
 
-export default DrawerAppBar;
+export default App;
